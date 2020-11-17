@@ -76,10 +76,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/Adaway/Adaway.apk:system/app/Adaway/Adaway.apk
 
-# Lightning
+# Weather Provider
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/Lightning/Lightning.apk:system/app/Lightning/Lightning.apk
-    
+    vendor/cm/prebuilt/OpenWeatherMapWeatherProvider/OpenWeatherMapWeatherProvider.apk:system/app/OpenWeatherMapWeatherProvider/OpenWeatherMapWeatherProvider.apk \
+    vendor/cm/prebuilt/WundergroundWeatherProvider/WundergroundWeatherProvider.apk:system/app/WundergroundWeatherProvider/WundergroundWeatherProvider.apk \
+    vendor/cm/prebuilt/YahooWeatherProvider/YahooWeatherProvider.apk:system/app/YahooWeatherProvider/YahooWeatherProvider.apk
+
 # Backup Tool
 ifneq ($(WITH_GMS),true)
 PRODUCT_COPY_FILES += \
@@ -302,4 +304,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 -include vendor/cyngn/product.mk
 
-$(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call prepend-product-if-exists, vendor/extra/product.mk)
